@@ -65,6 +65,19 @@ h1 {
   margin-top: 10px;
 }
 
+footer {
+  text-align: center;
+  padding: 15px;
+  background-color: #222;
+  color: #fff;
+  font-size: 14px;
+  margin-top: 30px;
+}
+
+footer p {
+  margin: 0;
+}
+
     </style>
 </head>
 <body>
