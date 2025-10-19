@@ -1,38 +1,39 @@
-# Language Atlas
-一个基于PHP + MySQL的多语言地图项目。  
-点击国家查看官方语言、中国地区可查看方言分布。
+# 🌍 Language Atlas
+A multilingual map project built with **PHP + MySQL**.  
+Click on a country to view its official languages;  
+for China, you can view the distribution of regional dialects.
 
 ---
 
-## 🧭 1. 数据与命名规则
-**层级结构：**  
-国家 → 语言 → 方言  
-方言绑定到省/州（ISO 3166-2）。
+## 🧭 1. Data & Naming Rules
+**Hierarchy:**  
+Country → Language → Dialect  
+Dialects are linked to provinces/states (ISO 3166-2).
 
-### 📌 国家代码
-- 使用 ISO-3166-1 两位国家代码。  
-  例如：
-  - CN — 中国  
-  - CA — 加拿大  
-  - JP — 日本  
-  - FR — 法国  
+### 📌 Country Codes
+- Use ISO 3166-1 two-letter country codes.  
+  Examples:
+  - CN — China  
+  - CA — Canada  
+  - JP — Japan  
+  - FR — France  
 
-### 📌 省/州代码
-- 使用 ISO-3166-2 标准。  
-  例如：
-  - CN-GD — 广东省  
-  - CN-ZJ — 浙江省  
-  - HK — 香港特别行政区  
-  - MO — 澳门特别行政区  
+### 📌 Province/State Codes
+- Follow the ISO 3166-2 standard.  
+  Examples:
+  - CN-GD — Guangdong Province  
+  - CN-ZJ — Zhejiang Province  
+  - HK — Hong Kong SAR  
+  - MO — Macao SAR  
 
-### 📌 语言代码
-- 使用 ISO 639-1 两位语言代码。  
-  例如：
-  - zh — 中文  
-  - en — 英语  
-  - fr — 法语  
-  - es — 西班牙语  
+### 📌 Language Codes
+- Use ISO 639-1 two-letter language codes.  
+  Examples:
+  - zh — Chinese  
+  - en — English  
+  - fr — French  
+  - es — Spanish  
 
-### 📌 数据来源
-- 初始阶段手动输入 20 个国家；
-- 后续根据调研逐步扩充。
+### 📌 Data Sources
+- Initially include data for 20 countries manually;  
+- Expand gradually based on ongoing research and verified datasets.
