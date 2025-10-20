@@ -1,21 +1,21 @@
-iso2,name_en
--99,Dhekelia Sovereign Base Area
--99,Somaliland
--99,Kosovo
--99,US Naval Base Guantanamo Bay
--99,Brazilian Island
--99,Northern Cyprus
--99,Cyprus No Mans Area
--99,Siachen Glacier
--99,Baykonur Cosmodrome
--99,Akrotiri Sovereign Base Area
--99,Southern Patagonian Ice Field
--99,Bir Tawil
--99,Indian Ocean Territories
--99,Coral Sea Islands
--99,Spratly Islands
--99,Clipperton Island
--99,Ashmore and Cartier Islands
--99,Bajo Nuevo Bank (Petrel Is.)
--99,Serranilla Bank
--99,Scarborough Reef
+iso2,name_en,region_type,parent_iso2
+-99,Dhekelia Sovereign Base Area,sovereign_base,GB
+-99,Somaliland,unrecognized_state,SO
+-99,Kosovo,partially_recognized_state,RS
+-99,US Naval Base Guantanamo Bay,leased_area,CU
+-99,Brazilian Island,territory,BR
+-99,Northern Cyprus,unrecognized_state,CY
+-99,Cyprus No Mans Area,demilitarized_zone,CY
+-99,Siachen Glacier,disputed_area,IN
+-99,Baykonur Cosmodrome,leased_area,KZ
+-99,Akrotiri Sovereign Base Area,sovereign_base,GB
+-99,Southern Patagonian Ice Field,disputed_area,AR
+-99,Bir Tawil,terra_nullius
+-99,Indian Ocean Territories,territory,AU
+-99,Coral Sea Islands,territory,AU
+-99,Spratly Islands,disputed_area
+-99,Clipperton Island,territory,FR
+-99,Ashmore and Cartier Islands,territory,AU
+-99,Bajo Nuevo Bank (Petrel Is.),disputed_area
+-99,Serranilla Bank,disputed_area
+-99,Scarborough Reef,disputed_area
