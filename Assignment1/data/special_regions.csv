@@ -1,4 +1,4 @@
-iso2,name_en,region_type,parent_iso2
+code,name_en,region_type,parent_iso2
 -99,Dhekelia Sovereign Base Area,sovereign_base,GB
 -99,Somaliland,unrecognized_state,SO
 -99,Kosovo,partially_recognized_state,RS
@@ -10,12 +10,13 @@ iso2,name_en,region_type,parent_iso2
 -99,Baykonur Cosmodrome,leased_area,KZ
 -99,Akrotiri Sovereign Base Area,sovereign_base,GB
 -99,Southern Patagonian Ice Field,disputed_area,AR
--99,Bir Tawil,terra_nullius
+-99,Bir Tawil,terra_nullius,
 -99,Indian Ocean Territories,territory,AU
 -99,Coral Sea Islands,territory,AU
--99,Spratly Islands,disputed_area
+-99,Spratly Islands,disputed_area,
 -99,Clipperton Island,territory,FR
 -99,Ashmore and Cartier Islands,territory,AU
--99,Bajo Nuevo Bank (Petrel Is.),disputed_area
--99,Serranilla Bank,disputed_area
--99,Scarborough Reef,disputed_area
+-99,Bajo Nuevo Bank (Petrel Is.),disputed_area,
+-99,Serranilla Bank,disputed_area,
+-99,Scarborough Reef,disputed_area,
+
