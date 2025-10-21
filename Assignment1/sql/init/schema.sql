@@ -13,7 +13,7 @@ DROP TABLE IF EXISTS special_regions;
 
 -- countries
 CREATE TABLE countries (
-  iso2 CHAR(2) NOT NULL,
+  iso2 CHAR(5) NOT NULL,
   name_en VARCHAR(100) NOT NULL,
   PRIMARY KEY (iso2)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -46,7 +46,7 @@ CREATE TABLE dialects (
 
 -- country_languages
 CREATE TABLE country_languages (
-  iso2 CHAR(2) NOT NULL,
+  iso2 CHAR(5) NOT NULL,
   lang_code CHAR(3) NOT NULL,
   status ENUM('official','regional','widely_spoken','minority') NOT NULL,
   greet TEXT NULL,
@@ -75,13 +75,13 @@ CREATE TABLE dialect_regions (
 
 -- special_regions
 CREATE TABLE special_regions (
-  code VARCHAR(10) NOT NULL,
-  name_en VARCHAR(100) NOT NULL,
-  region_type VARCHAR(100) NULL,
-  parent_iso2 CHAR(2) NULL,
-  PRIMARY KEY (code),
-  CONSTRAINT fk_sr_parent
-    FOREIGN KEY (parent_iso2) REFERENCES countries(iso2)
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    code VARCHAR(10) NULL,
+    name_en VARCHAR(150) NOT NULL,
+    region_type VARCHAR(100) NULL,
+    parent_iso2 CHAR(5) NULL,
+    CONSTRAINT fk_sr_parent
+      FOREIGN KEY (parent_iso2) REFERENCES countries(iso2)
       ON UPDATE CASCADE ON DELETE SET NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
