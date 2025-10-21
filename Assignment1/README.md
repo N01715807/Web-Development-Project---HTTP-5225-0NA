@@ -1,11 +1,47 @@
 # Language Atlas
-A multilingual map project built with **PHP + MySQL**.  
+A multilingual map project built with**HTML5 / CSS3 / JavaScript (ES6)**,**PHP+MySQL**;  
 Click on a country to view its official languages;  
-for China, you can view the distribution of regional dialects.
+for China, you can view the distribution of regional dialects.  
+**Architecture**  
+Frontend (Leaflet + JS)  
+↓  
+Backend (PHP APIs)  
+↓  
+Database (MySQL)  
 
 ---
 
-## 1. Backend Logic Overview
+## 1. Frontend Overview
+The frontend provides an interactive world map that lets users:
+- Click a country to view its languages and dialects.  
+- Expand a language (e.g., Chinese) to see related dialects.  
+- Select a dialect to highlight the regions where it is spoken.
+
+### User Interaction Flow
+| Step | User Action | System Response |
+|------|--------------|-----------------|
+| 1️⃣ | Click a country | Map zooms in; sidebar shows “Loading languages…” |
+| 2️⃣ | Call `/api/getLanguages.php?country=CN` | Fetch and display country’s languages |
+| 3️⃣ | Expand a language | Fetch dialects from `/api/getDialects.php` |
+| 4️⃣ | Click a dialect | Call `/api/getRegions.php?dialect_id=...` and highlight matching regions |
+| 5️⃣ | Click “Back” | Zoom out to the full world map view |
+
+### Key Interaction Logic (Simplified)
+```plaintext
+Click country
+   ↓
+Fetch languages
+   ↓
+Render sidebar
+   ↓
+Expand language → Fetch dialects
+   ↓
+Click dialect → Fetch & highlight regions
+   ↓
+Zoom / Reset as needed
+```
+
+## 2. Backend Logic Overview
 Build a lightweight PHP API layer that allows the frontend (the interactive map) to fetch real data from the MySQL database.  
 The backend is **read-only** — it only handles data retrieval, not create/update/delete operations.
 
@@ -25,10 +61,9 @@ The backend is **read-only** — it only handles data retrieval, not create/upda
 | `public/api/getRegions.php` | Lists all regions or provinces where a specific dialect is spoken |
 | `public/api/getCountryData.php` | Combined endpoint — returns both languages and dialects for a given country in a single response |
 
-
 ---
 
-## 2. Data & Naming Rules
+## 3. Data & Naming Rules
 **Hierarchy:**  
 Country → Language → Dialect  
 Dialects are linked to provinces/states (ISO 3166-2).
@@ -70,8 +105,6 @@ This project integrates multiple open datasets for world and regional language v
 > All data sources are **open and free for non-commercial educational use**.  
 > REST Countries © [apilayer](https://apilayer.com) — dataset maintained under open license.  
 > GeoJSON boundaries © [SimpleMaps](https://simplemaps.com) and [DataHub.io](https://datahub.io/core/geo-countries).
-
----
 
 ### Database Structure (Data Tables)
 | Table Name | Description |
