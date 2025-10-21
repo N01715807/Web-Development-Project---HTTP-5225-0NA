@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>World Language Map</title>
+
+  <!-- ✅ Leaflet CSS from local folder -->
+  <link rel="stylesheet" href="./leaflet/leaflet.css" />
+
+  <!-- ✅ Custom stylesheet -->
+  <link rel="stylesheet" href="./styles/style.css" />
+</head>
+
+<body>
+  <!-- 🔍 Toolbar -->
+  <div id="toolbar">
+    <input type="text" placeholder="Search country..." id="searchBox" />
+  </div>
+
+  <!-- 🌍 Map container -->
+  <div id="map"></div>
+
+  <!-- ℹ️ Info panel -->
+  <div id="info-panel">
+    <h2>Language Info</h2>
+    <ul id="info-list">
+      <li>Select a country to view its languages</li>
+    </ul>
+  </div>
+
+  <!-- ✅ Leaflet JS -->
+  <script src="./leaflet/leaflet.js"></script>
+
+  <!-- ✅ Main JS -->
+  <script src="./main.js"></script>
+</body>
+</html>
