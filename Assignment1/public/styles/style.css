@@ -1,3 +1,4 @@
+/* 🌍 Layout base */
 body {
   margin: 0;
   display: flex;
@@ -6,13 +7,13 @@ body {
   overflow: hidden;
 }
 
-/* Left: Map container */
+/* Map area */
 #map {
   flex: 3;
   height: 100%;
 }
 
-/* Right: Information panel */
+/* Info panel */
 #info-panel {
   flex: 1;
   background: #f9f9f9;
@@ -21,7 +22,7 @@ body {
   overflow-y: auto;
 }
 
-/* Top search bar */
+/* Toolbar */
 #toolbar {
   position: absolute;
   top: 10px;
@@ -39,20 +40,18 @@ body {
   color: #333;
 }
 
-/* Scrollable list styling */
+/* Info list */
 #info-panel ul {
   list-style: none;
   padding: 0;
 }
 
-/* Individual list items */
 #info-panel li {
   margin-bottom: 0.5em;
   padding: 4px 6px;
   border-radius: 4px;
 }
 
-/* Hover effect for list items */
 #info-panel li:hover {
   background: #e0e0e0;
   cursor: pointer;
