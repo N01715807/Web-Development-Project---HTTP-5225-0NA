@@ -5,7 +5,30 @@ for China, you can view the distribution of regional dialects.
 
 ---
 
-## 1. Data & Naming Rules
+## 1. Backend Logic Overview
+Build a lightweight PHP API layer that allows the frontend (the interactive map) to fetch real data from the MySQL database.  
+The backend is **read-only** — it only handles data retrieval, not create/update/delete operations.
+
+### Core Backend Logic Flow
+1. The frontend sends a request (e.g., `/api/getLanguages.php?country=CN`)
+2. The API file connects to the database via `db.php`
+3. Executes the corresponding SQL query
+4. Returns data in JSON format to the frontend
+
+### Key File Overview
+| File Path | Purpose |
+|------------|----------|
+| `src/config/db.php` | Establishes the PDO database connection and manages connection errors |
+| `public/api/getCountries.php` | Returns a JSON list of all countries (`iso2`, `name_en`) from the `countries` table |
+| `public/api/getLanguages.php` | Retrieves all languages and their statuses (`official`, `regional`, etc.) for a given country |
+| `public/api/getDialects.php` | Fetches dialects belonging to a specific language (optionally filtered by country) |
+| `public/api/getRegions.php` | Lists all regions or provinces where a specific dialect is spoken |
+| `public/api/getCountryData.php` | Combined endpoint — returns both languages and dialects for a given country in a single response |
+
+
+---
+
+## 2. Data & Naming Rules
 **Hierarchy:**  
 Country → Language → Dialect  
 Dialects are linked to provinces/states (ISO 3166-2).
