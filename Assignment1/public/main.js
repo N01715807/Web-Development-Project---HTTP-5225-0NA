@@ -1,13 +1,40 @@
-// 🌍 Initialize the map
-const map = L.map("map").setView([20, 0], 2);
+// === Initialize map ===
+// Disable default zoom control (will add later)
+const map = L.map('map', {
+  zoomControl: false,
+  maxZoom: 8,
+  dragging: false,
+  keyboard: false,
+  worldCopyJump: false,
+  maxBounds: [[-85, -180], [85, 180]],
+  maxBoundsViscosity: 1.0,
+  inertia: false,
+  bounceAtZoomLimits: false
+});
 
-// 🧱 Add tile layer (OpenStreetMap)
-L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
-  maxZoom: 5,
-  attribution: "© OpenStreetMap contributors",
+map.setView([20, 0], 2.5);
+map.setMinZoom(map.getZoom());
+
+// Add zoom control at bottom left
+L.control.zoom({ position: 'bottomleft' }).addTo(map);
+
+// Satellite basemap
+L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+  maxZoom: 13,
+  noWrap: true,
+  attribution: '&copy; Esri'
 }).addTo(map);
 
-// 🗺️ Load world map data
+// Label layer (city name, country name)
+L.tileLayer('https://services.arcgisonline.com/ArcGIS/rest/services/Reference/World_Boundaries_and_Places/MapServer/tile/{z}/{y}/{x}', {
+  attribution: 'Labels & boundaries © Esri'
+}).addTo(map);
+
+// === dragging ===
+map.dragging.enable();
+map.keyboard.enable();
+
+// Load world map data
 fetch("./assets/maps/world.json")
   .then((res) => {
     if (!res.ok) throw new Error("Failed to load world.json");
@@ -26,10 +53,10 @@ fetch("./assets/maps/world.json")
 
         layer.bindTooltip(countryName);
 
-        // 🖱️ On click: fetch languages from backend
+        // On click: fetch languages from backend
         layer.on("click", () => {
           console.clear();
-          console.log(`🗺️ Selected Country: ${countryName} (${countryCode})`);
+          console.log(`Selected Country: ${countryName} (${countryCode})`);
           fetchCountryData(countryCode, countryName);
         });
       },
@@ -38,10 +65,10 @@ fetch("./assets/maps/world.json")
     worldLayer.addTo(map);
   })
   .catch((err) => {
-    console.error("❌ Error loading world map:", err);
+    console.error("Error loading world map:", err);
   });
 
-// 🌐 Fetch country data (languages & dialects)
+// Fetch country data (languages & dialects)
 function fetchCountryData(countryCode, countryName) {
   const infoList = document.getElementById("info-list");
   infoList.innerHTML = `<li><strong>${countryName}</strong> — Loading languages...</li>`;

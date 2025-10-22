@@ -1,46 +1,53 @@
-/* 🌍 Layout base */
-body {
+/* === Global layout === */
+html, body {
+  height: 100%;
   margin: 0;
-  display: flex;
-  height: 100vh;
-  font-family: Arial, sans-serif;
   overflow: hidden;
 }
 
-/* Map area */
+/* === Fullscreen map === */
 #map {
-  flex: 3;
-  height: 100%;
+  position: fixed;
+  inset: 0;
+  z-index: 0;
 }
 
-/* Info panel */
-#info-panel {
-  flex: 1;
-  background: #f9f9f9;
-  border-left: 1px solid #ccc;
-  padding: 1rem;
-  overflow-y: auto;
-}
-
-/* Toolbar */
+/* === Top toolbar === */
 #toolbar {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  background: white;
-  border: 1px solid #ccc;
-  padding: 6px 10px;
-  border-radius: 4px;
-  z-index: 1000;
+  position: fixed;
+  top: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
 }
 
-/* Panel title */
+/* === Right info panel === */
+#info-panel {
+  position: fixed;
+  top: 12px;
+  right: 12px;
+  z-index: 10;
+  width: 360px;
+  max-height: calc(100vh - 24px);
+  overflow: auto;
+  background: #fff;
+  border: 1px solid #ccc;
+  padding: 12px;
+}
+
+/* === Zoom control (bottom left) === */
+.leaflet-bottom.leaflet-left {
+  bottom: 20px;
+  left: 10px;
+}
+
+/* === Info panel title === */
 #info-panel h2 {
   margin-top: 0;
   color: #333;
 }
 
-/* Info list */
+/* === Info list === */
 #info-panel ul {
   list-style: none;
   padding: 0;
