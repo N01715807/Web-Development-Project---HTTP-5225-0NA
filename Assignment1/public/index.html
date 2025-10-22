@@ -5,23 +5,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>World Language Map</title>
 
-  <!-- ✅ Leaflet CSS from local folder -->
+  <!-- Leaflet CSS from local folder -->
   <link rel="stylesheet" href="./leaflet/leaflet.css" />
 
-  <!-- ✅ Custom stylesheet -->
+  <!-- Custom stylesheet -->
   <link rel="stylesheet" href="./styles/style.css" />
 </head>
 
 <body>
-  <!-- 🔍 Toolbar -->
+  <!-- Toolbar -->
   <div id="toolbar">
-    <input type="text" placeholder="Search country..." id="searchBox" />
-  </div>
+  <form id="searchForm">
+    <input type="text" id="searchBox" placeholder="Search country..." />
+    <button type="submit" id="searchBtn">Search</button>
+  </form>
+</div>
 
-  <!-- 🌍 Map container -->
+  <!-- Map container -->
   <div id="map"></div>
 
-  <!-- ℹ️ Info panel -->
+  <!-- Info panel -->
   <div id="info-panel">
     <h2>Language Info</h2>
     <ul id="info-list">
@@ -29,10 +32,10 @@
     </ul>
   </div>
 
-  <!-- ✅ Leaflet JS -->
+  <!-- Leaflet JS -->
   <script src="./leaflet/leaflet.js"></script>
 
-  <!-- ✅ Main JS -->
+  <!-- Main JS -->
   <script src="./main.js"></script>
 </body>
 </html>
