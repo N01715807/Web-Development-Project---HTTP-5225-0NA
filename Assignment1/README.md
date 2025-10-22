@@ -11,7 +11,28 @@ Database (MySQL)
 
 ---
 
-## 1. Frontend Overview
+## 1. Run with Docker Compose
+1. Prerequisites
+- [Docker Desktop](https://www.docker.com/) or Docker Engine  
+- [Docker Compose](https://docs.docker.com/compose/)
+2. Setup
+```bash
+cp .env.example .env
+docker-compose up --build
+```
+3. Access
+- Web App: http://localhost:8000
+Interactive world map showing country info, official languages, and dialects.
+- Database (phpMyAdmin): http://localhost:8080
+4. Manage
+```bash
+docker-compose down       # Stop containers
+docker-compose logs -f    # View logs
+```
+
+---
+
+## 2. Frontend Overview
 The frontend provides an interactive world map that lets users:
 - Click a country to view its languages and dialects.  
 - Expand a language (e.g., Chinese) to see related dialects.  
@@ -41,7 +62,7 @@ Click dialect → Fetch & highlight regions
 Zoom / Reset as needed
 ```
 
-## 2. Backend Logic Overview
+## 3. Backend Logic Overview
 Build a lightweight PHP API layer that allows the frontend (the interactive map) to fetch real data from the MySQL database.  
 The backend is **read-only** — it only handles data retrieval, not create/update/delete operations.
 
@@ -63,7 +84,7 @@ The backend is **read-only** — it only handles data retrieval, not create/upda
 
 ---
 
-## 3. Data & Naming Rules
+## 4. Data & Naming Rules
 **Hierarchy:**  
 Country → Language → Dialect  
 Dialects are linked to provinces/states (ISO 3166-2).
